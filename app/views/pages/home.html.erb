@@ -1,10 +1,10 @@
 <div class="container">
-  <h1>Welcome to the library</h1>
+  <h1 class="text-center">Welcome to the library manager!</h1>
   <h2><i class="fa fa-book" aria-hidden="true"></i> Our books</h2>
-  <p>We have a catalogue of <%= @books.size %> books</p>
-  <p>Currently, <%= @available_books.size %> books are available and <%= @books.size - @available_books.size %> books are being borrowed !</p>
+  <p>We have a catalogue of <%= @books.size %> books.</p>
+  <p>Currently, <%= @available_books.size %> books are available and <%= @books.size - @available_books.size %> books are being borrowed!</p>
 
   <h2><i class="fa fa-users" aria-hidden="true"></i> Our users</h2>
-  <p>We have <%= @users.size %> users</p>
-  <p>Currently, <%= @borrowing_users.size %> users are reading our books ! </p>
+  <p>We have <%= @users.size %> users.</p>
+  <p>Currently, <%= @borrowing_users.size %> users are reading our books! </p>
 </div>

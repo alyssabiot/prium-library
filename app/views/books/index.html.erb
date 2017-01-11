@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>Here is a list of all books</h1>
+  <h1 class="text-center">Here is a list of all books</h1>
+  <%= link_to "Add a book", new_book_path %>
   <% @books.each do |book| %>
-    <h1><%= book.title %></h1>
-    <p>Author : <%= book.author %></p>
-    <p>Abstract : <%= book.abstract %></p>
-    <p>State : <%= book.state %></p>
+    <div class="block">
+      <h2><%= link_to book.title, book_path(book) %></h2>
+      <p>Author : <%= book.author %></p>
+      <p>Abstract : <%= book.abstract %></p>
+      <p>State : <%= book.state %></p>
+    </div>
   <% end %>
 </div>

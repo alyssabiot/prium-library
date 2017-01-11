@@ -2,5 +2,10 @@
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
   <p><%= @user.email %></p>
   <p>Picture of the user</p>
-  <p>List of borrowed books :</p>
+  <p>Borrowed books : </p>
+  <ul>
+    <% @user.books.each do |book| %>
+      <li><%= link_to book.title, book_path(book) %></li>
+    <% end %>
+  </ul>
 </div>
