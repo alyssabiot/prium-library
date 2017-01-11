@@ -1,0 +1,8 @@
+<div class="form-container">
+  <%= simple_form_for @book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :abstract %>
+    <%= f.submit class: "btn btn-warning"%>
+  <% end %>
+</div>

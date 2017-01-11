@@ -21,6 +21,23 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @book.update(book_params)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @book.delete
+    redirect_to books_path
+  end
+
   private
   def book_params
     params.require(:book).permit(:title, :author, :abstract, :state)

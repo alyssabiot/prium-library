@@ -3,8 +3,8 @@ class CreateBooks < ActiveRecord::Migration[5.0]
     create_table :books do |t|
       t.string :title
       t.string :author
-      t.string :abstract
-      t.string :state, default: "available"
+      t.text :abstract
+      t.string :state, default: "Available"
 
       t.timestamps
     end

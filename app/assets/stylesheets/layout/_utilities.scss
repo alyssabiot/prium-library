@@ -27,22 +27,25 @@
 h1 {
   font-size: 26px;
   color: #da552f;
+  text-align: center;
 }
 
 h2 {
   font-size: 22px;
   color: #da552f;
+  margin-top: 0px;
 }
 
 body {
   background-color: rgba(218, 85, 47, 0.1);
+  color: #616668;
 }
 
 a {
-  color: black;
+  color: #da552f;
 }
 
 a:hover {
   text-decoration: none;
-  color: #da552f;
+  color: #616668;
 }

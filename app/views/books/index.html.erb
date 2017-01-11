@@ -1,12 +1,16 @@
 <div class="container">
-  <h1 class="text-center">Here is a list of all books</h1>
+  <h1>Here is a list of all books</h1>
   <%= link_to "Add a book", new_book_path %>
   <% @books.each do |book| %>
     <div class="block">
       <h2><%= link_to book.title, book_path(book) %></h2>
       <p>Author : <%= book.author %></p>
-      <p>Abstract : <%= book.abstract %></p>
-      <p>State : <%= book.state %></p>
+      <!-- if borrowed, link to user -->
+      <% if book.state == "Borrowed" %>
+        <p>State : Borrowed by <%= link_to book.user.first_name + " " + book.user.last_name, user_path(book.user) %></p>
+      <% else %>
+        <p>State : Available</p>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -21,9 +21,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user.update(user_params)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.delete
+    redirect_to users_path
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :last_name, :first_name)
+    params.require(:user).permit(:email, :last_name, :first_name, :photo, :photo_cache)
   end
 
   def set_user

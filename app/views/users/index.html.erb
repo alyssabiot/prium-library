@@ -1,11 +1,10 @@
 <div class="container">
-  <h1 class="text-center">Here is a list of all users</h1>
+  <h1>Here is a list of all users</h1>
   <%= link_to "Add a user", new_user_path %>
   <% @users.each do |user| %>
     <div class="block">
-      <h2><%= link_to user.first_name + " " + user.last_name, user_path(user) %></h2>
-      <p><%= user.email %></p>
-      <p>Picture of the user</p>
+      <h2><%= cl_image_tag user.photo, class: "avatar" %> <%= link_to user.first_name + " " + user.last_name, user_path(user) %></h2>
+      <p>Email : <%= user.email %></p>
       <p>Borrowed books : </p>
       <ul>
         <% user.books.each do |book| %>
