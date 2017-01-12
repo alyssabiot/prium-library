@@ -2,13 +2,13 @@
   <h1 class= "margin_bottom">Welcome to the library manager!</h1>
   <div class="block">
     <h2><i class="fa fa-book" aria-hidden="true"></i> Our books</h2>
-    <p>We have a catalogue of <%= @books.size %> books.</p>
-    <p>Currently, <%= @available_books.size %> books are available and <%= @books.size - @available_books.size %> books are being borrowed!</p>
+    <p>We have a catalogue of <%= pluralize(@books.size, "book") %>.</p>
+    <p>Currently, <%= @available_books.size %> book<%= 's' unless @available_books.size == 1 %> <%= @available_books.size == 1 ? 'is' : 'are' %> available and <%= @books.size - @available_books.size %> book<%= 's' unless @books.size - @available_books.size == 1 %> <%= @books.size - @available_books.size == 1 ? 'is' : 'are' %> being borrowed!</p>
   </div>
 
   <div class="block">
     <h2><i class="fa fa-users" aria-hidden="true"></i> Our users</h2>
-    <p>We have <%= @users.size %> users.</p>
-    <p>Currently, <%= @borrowing_users.size %> users are reading our books! </p>
+    <p>We have <%= pluralize(@users.size, "user") %>.</p>
+    <p>Currently, <%= @borrowing_users.size %> user<%= 's' unless @borrowing_users.size == 1 %> <%= @borrowing_users.size == 1 ? 'is' : 'are' %> reading our books! </p>
   </div>
 </div>
