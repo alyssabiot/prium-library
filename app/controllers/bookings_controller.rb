@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   def index
-    @booking = Booking.new()
-    @books = Book.where(state: "Borrowed")
+    @bookings = Booking.all
+    @booking  = Booking.new
+    # @books = Book.where(state: "Borrowed")
   end
 
   def new
@@ -25,8 +26,13 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @book = Book.find()
-    @booking = Booking.find
+    @booking = Booking.find(params[:booking][:id])
+    @book = @booking.book
+    @book.state = "Available"
+    @book.save
+    @booking.delete
+
+    redirect_to bookings_path
   end
 
   private
