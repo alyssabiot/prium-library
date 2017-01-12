@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   def destroy
     @user.delete
     redirect_to users_path
+    flash[:notice] = "The user #{@user.first_name} #{@user.last_name} has been destroyed!"
   end
 
   private
