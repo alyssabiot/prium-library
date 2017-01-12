@@ -1,9 +1,7 @@
 <div class="container">
-  <% if @user.photo.present? %>
-    <div class="text-center">
-      <%= cl_image_tag @user.photo, class: "avatar-large" %>
-    </div>
-  <% end %>
+  <div class="text-center">
+    <%= avatar_large(@user) %>
+  </div>
   <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
   <div class="block">

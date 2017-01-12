@@ -25,6 +25,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @book = Book.find()
+    @booking = Booking.find
   end
 
   private

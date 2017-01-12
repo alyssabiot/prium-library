@@ -4,8 +4,8 @@
       <h1>Add a new booking</h1>
       <div class="form-container">
         <%= simple_form_for @booking do |f| %>
-          <%= f.input :user_id, collection: @users %>
-          <%= f.input :book_id, collection: @books %>
+          <%= f.input :user_id, collection: @users, :label_method => :email, prompt: "Select user" %>
+          <%= f.input :book_id, collection: @books, :label_method => :title,prompt: "Select book" %>
           <%= f.submit class: "btn btn-warning"%>
         <% end %>
       </div>

@@ -3,8 +3,8 @@
     <div class="col-sm-8 col-sm-offset-2">
       <h1>Return a book</h1>
       <div class="form-container">
-        <%= simple_form_for @booking do |f| %>
-          <%= f.input :book_id, collection: @books %>
+        <%= simple_form_for @booking, url: booking_path(@booking), method: :delete do |f| %>
+          <%= f.input :book_id, collection: @books, :label_method => :title,prompt: "Select book" %>
           <%= f.submit class: "btn btn-warning"%>
         <% end %>
       </div>
