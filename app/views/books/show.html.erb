@@ -13,9 +13,16 @@
 
     <!-- delete book only if no bookings -->
     <% if @book.booking.blank? %>
-      <%= link_to "Update book", edit_book_path(@book) %> | <%= link_to "Delete book", book_path(@book), method: :delete, :data => {:confirm => 'Are you sure?'} %>
+      <%= link_to edit_book_path(@book) do %>
+        <p><i class="fa fa-pencil-square" aria-hidden="true"></i> Update book</p>
+      <% end %>
+      <%= link_to book_path(@book), method: :delete, :data => {:confirm => 'Are you sure?'} do %>
+        <p><i class="fa fa-minus-square" aria-hidden="true"></i> Delete book</p>
+      <% end %>
     <% else %>
-      <%= link_to "Update book", edit_book_path(@book) %>
+      <%= link_to edit_book_path(@book) do %>
+        <p><i class="fa fa-pencil-square" aria-hidden="true"></i> Update book</p>
+      <% end %>
     <% end %>
   </div>
 </div>

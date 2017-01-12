@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Here is a list of all users</h1>
-  <%= link_to "Add a user", new_user_path %>
+  <%= link_to new_user_path do %>
+    <p><i class="fa fa-plus-square" aria-hidden="true"></i> Add a user</p>
+  <% end %>
   <% @users.each do |user| %>
     <div class="block">
       <h2><%= avatar(user) %> <%= link_to user.first_name + " " + user.last_name, user_path(user) %></h2>
@@ -8,7 +10,7 @@
       <p>Borrowed books : </p>
       <ul>
         <% user.books.each do |book| %>
-          <li><%= book.title %></li>
+          <li><%= link_to book.title, book_path(book) %></li>
         <% end %>
       </ul>
     </div>

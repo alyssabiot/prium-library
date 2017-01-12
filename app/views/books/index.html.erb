@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Here is a list of all books</h1>
-  <%= link_to "Add a book", new_book_path %>
+  <%= link_to new_book_path do %>
+    <p><i class="fa fa-plus-square" aria-hidden="true"></i> Add a book</p>
+  <% end %>
   <% @books.each do |book| %>
     <div class="block">
       <h2><%= link_to book.title, book_path(book) %></h2>
