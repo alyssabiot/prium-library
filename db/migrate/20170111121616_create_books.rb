@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :author
       t.text :abstract
-      t.string :state, default: "Available"
+      t.string :aasm_state
 
       t.timestamps
     end

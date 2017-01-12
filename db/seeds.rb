@@ -11,10 +11,10 @@ user2.save
 user3 = User.new(email: "jerome.lewagon@gmail.com", first_name: "Jérôme", last_name: "Lewagon")
 user3.save
 
-book1 = Book.new(title: "Comme Convenu", author: "Laurel", abstract: "The life of a video game startup", state: "Borrowed")
+book1 = Book.new(title: "Comme Convenu", author: "Laurel", abstract: "The life of a video game startup", aasm_state: "borrowed")
 book1.save
 
-book2 = Book.new(title: "Hyperbole", author: "Allie Brosh", state: "Borrowed")
+book2 = Book.new(title: "Hyperbole", author: "Allie Brosh", aasm_state: "borrowed")
 book2.save
 
 book3 = Book.new(title: "Au coeur de Fukushima", author: "Kazuto Tatsuta", abstract: "After Fukushima : the cleaning")

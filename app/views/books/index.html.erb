@@ -6,7 +6,7 @@
       <h2><%= link_to book.title, book_path(book) %></h2>
       <p>Author : <%= book.author %></p>
       <!-- if borrowed, link to user -->
-      <% if book.state == "Borrowed" %>
+      <% if book.borrowed? %>
         <p>State : Borrowed by <%= link_to book.user.first_name + " " + book.user.last_name, user_path(book.user) %></p>
       <% else %>
         <p>State : Available</p>

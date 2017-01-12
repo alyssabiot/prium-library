@@ -2,14 +2,13 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @booking  = Booking.new
-    # @books = Book.where(state: "Borrowed")
   end
 
   def new
     @booking = Booking.new()
     @users = User.all
     # a booking can only be made for available books
-    @books = Book.where(state: "Available")
+    @books = Book.available
   end
 
   def create
@@ -17,8 +16,7 @@ class BookingsController < ApplicationController
       @book = Book.find(booking_params[:book_id])
     if @booking.save
       # update status of corresponding book to "borrowed" so it can't be borrowed again
-      @book.state = "Borrowed"
-      @book.save
+      @book.borrow!
       redirect_to new_booking_path
     else
       render :new
@@ -28,8 +26,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:booking][:id])
     @book = @booking.book
-    @book.state = "Available"
-    @book.save
+    # update status of corresponding book to "available" so it can be borrowed again
+    @book.return!
     @booking.delete
 
     redirect_to bookings_path
