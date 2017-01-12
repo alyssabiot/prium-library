@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 gem 'aasm'
+gem 'data-confirm-modal'
 
 group :development, :test do
   gem 'binding_of_caller'
